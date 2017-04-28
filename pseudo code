@@ -1,0 +1,30 @@
+Start Game when Browers Loads
+User Selects Character by pressing a character key on keyboard
+Selected charcter displays on browser within element line "Your Gusess so far:"
+Number of "Guesses Left" decrease by -1
+Computer Selects a random Charcter
+Compare User Character and Comupter Random Character
+If both ===, then record Win (++) on element line "Wins: + number" AND
+    reset Guesses Left to max number 10 and repeat function line 1 thru 6.
+Else repeat function lines 2 through 6 until "TRUE" is meet
+If number of Guesses Left = 0, then then record Loss (++) on element line "Losses: + number" AND reset Guesses = 9 (Max Guesses).
+Function will repeat for new game.
+
+Notes:  Wins & Loses will contniue to increase without a max.
+
+var computerLetterArray = [A-Z]
+var computerGuesses = Math.floor(Math.Random) * computerLetterArray.length
+var guessesLeft = 9
+var wins = 0
+var losses = 0
+
+document.onkey = function(event) {
+    var key = .event.key;
+}
+
+var userGuessesArray =[]
+    Where user guesses are stored in Javascript Memory - similiar to the car milieage class activity.
+
+function would have guessesLeft -- negative incremental somewhere
+function would have wins ++ around the IF TRUE statement
+function would have losses ++ around the guessesLeft = 0 statement

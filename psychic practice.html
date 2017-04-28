@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Psychic Game</title>
+</head>
+
+<body>
+
+<div id="game">
+<h1>Are you Psychic?!</h1>
+  <p>What letter am I thinking of?</p>
+  <p>So far you've guessed: <span id="letters"></span></p>
+  <p>Wins: <span id="wins"></span></p>
+  <p>Guesses Left: <span id="left"></span></p>
+  <p>Losses: <span id="losses"></span></p>
+
+  <p>Testing: <span id="demo"></span></p>
+</div>
+
+<script type="text/javascript">
+
+var computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m",
+"n","o","p","q","r","s","t","u","v","w","x","y","z"];
+
+var userGuess = [];
+
+var wins = 0;
+var losses = 0;
+var guessLeft = 9;
+var computerGuess = computerChoices[
+    Math.floor(Math.random() * computerChoices.length)];
+
+
+function myFunction() {
+    document.getElementById("demo").innerHTML = computerGuess;
+}
+
+myFunction();
+
+document.onkeyup = function(event) {
+  var key = event.key;
+  console.log(key);
+  userGuess.push(key);
+  document.getElementById("left").innerHTML = guessLeft--;
+  document.getElementById("letters").innerHTML = userGuess;
+
+  if (key === computerGuess) {
+    document.getElementById("wins").innterHTML = wins++, alert("WINNER WINNER WINNER!");
+  }
+
+  if (guessLeft < -1) {
+    document.getElementById("losses").innerHTML = losses++, alert("Womp Womp");
+  }
+
+
+    //if(userGuess === computerChoice){
+        //wins++;
+    //}else{
+        //guesses--;
+    //}
+
+    //if(guesses === 0){
+        //losses++
+    //}
+
+    //document.getElementById('wins').innerHTML = "Wins: " + wins;
+    //document.getElementById('losses').innerHTML = "losses: " + losses;
+    //document.getElementById('guesses').innerHTML = "Guesses left: " + guesses;
+//how do I add a win if computerGuess equals userGuess?
+  //document.getElementById("wins").innterHTML = computerGuess===userGuess;
+
+
+  //var computerGuess = computerChoices[
+      //Math.floor(Math.random() * computerChoices.length)];
+}
+
+</script>
+</body>
+</html>
