@@ -16,6 +16,7 @@
   <p>Losses: <span id="losses"></span></p>
 
   <p>Testing: <span id="demo"></span></p>
+
 </div>
 
 <script type="text/javascript">
@@ -46,11 +47,15 @@ document.onkeyup = function(event) {
   document.getElementById("letters").innerHTML = userGuess;
 
   if (key === computerGuess) {
-    document.getElementById("wins").innterHTML = wins++, alert("WINNER WINNER WINNER!");
+    document.getElementById("wins").innterHTML = wins++, userGuess.splice(0,userGuess.length);
+    alert("HOLY MOLY YOU'RE PSYCHIC!");
+    guessLeft = 9;
   }
 
-  if (guessLeft < -1) {
-    document.getElementById("losses").innerHTML = losses++, alert("Womp Womp");
+  if (guessLeft < 0) {
+    document.getElementById("losses").innerHTML = losses++, userGuess.splice(0,userGuess.length);
+    alert("Womp Womp");
+    guessLeft = 9;
   }
 
 
