@@ -1,5 +1,3 @@
-
-
 var computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m",
 "n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
@@ -12,12 +10,6 @@ var computerGuess = computerChoices[
     Math.floor(Math.random() * computerChoices.length)];
 
 
-function myFunction() {
-    document.getElementById("demo").innerHTML = computerGuess;
-}
-
-myFunction();
-
 document.onkeyup = function(event) {
   var key = event.key;
   console.log(key);
@@ -26,11 +18,14 @@ document.onkeyup = function(event) {
   document.getElementById("letters").innerHTML = userGuess;
 
   if (key === computerGuess) {
-    document.getElementById("wins").innterHTML = wins++, alert("WINNER WINNER WINNER!");
+    document.getElementById("wins").innterHTML = wins++, userGuess.splice(0,userGuess.length);
+    alert("HOLY MOLY YOU'RE PSYCHIC!");
+    guessLeft = 9;
   }
 
-  if (guessLeft < -1) {
-    document.getElementById("losses").innerHTML = losses++, alert("Womp Womp");
+  if (guessLeft < 0) {
+    document.getElementById("losses").innerHTML = losses++, userGuess.splice(0,userGuess.length);
+    alert("Womp Womp");
+    guessLeft = 9;
   }
-
-  }
+}
